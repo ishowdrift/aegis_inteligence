@@ -495,6 +495,7 @@ window.AEGIS_NAV = (function () {
   function initMobileSidebar() {
     const trigger = document.getElementById('mobile-menu-trigger');
     const sidebar = document.getElementById('app-sidebar');
+    const closeBtn = document.getElementById('sidebar-close-btn');
 
     if (!trigger || !sidebar) return;
 
@@ -512,6 +513,10 @@ window.AEGIS_NAV = (function () {
       document.body.style.overflow = 'hidden';
       playSocChime('click');
     });
+
+    if (closeBtn) {
+      closeBtn.addEventListener('click', closeMobileSidebar);
+    }
 
     backdrop.addEventListener('click', closeMobileSidebar);
   }

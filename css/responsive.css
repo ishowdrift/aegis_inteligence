@@ -60,11 +60,21 @@
   .app-sidebar {
     transform: translateX(-100%);
     width: 280px;
-    box-shadow: var(--shadow-lg);
+    box-shadow: 0 0 40px rgba(0, 0, 0, 0.9);
+    z-index: 100 !important;
   }
 
   .app-sidebar.is-mobile-open {
     transform: translateX(0);
+    z-index: 100 !important;
+  }
+
+  .mobile-drawer-close-btn {
+    display: flex;
+  }
+
+  #sidebar-backdrop {
+    z-index: 90 !important;
   }
 
   .app-main {

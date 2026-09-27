@@ -74,6 +74,26 @@
   text-transform: uppercase;
 }
 
+.mobile-drawer-close-btn {
+  display: none;
+  background: transparent;
+  border: 1px solid var(--border-medium);
+  border-radius: var(--radius-sm);
+  color: var(--text-secondary);
+  width: 30px;
+  height: 30px;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  margin-left: auto;
+  transition: all var(--transition-fast);
+}
+
+.mobile-drawer-close-btn:hover {
+  color: var(--text-primary);
+  border-color: var(--border-strong);
+}
+
 /* Navigation List */
 .sidebar-nav {
   flex: 1;

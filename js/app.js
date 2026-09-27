@@ -52,6 +52,11 @@ window.AEGIS_APP = (function () {
           window.AEGIS_NAV.openCommandPalette();
         }
       }, 100);
+    } else if (params.get('nav') === 'open') {
+      setTimeout(() => {
+        const trigger = document.getElementById('mobile-menu-trigger');
+        if (trigger) trigger.click();
+      }, 100);
     }
   }
 
