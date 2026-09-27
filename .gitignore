@@ -1,0 +1,15 @@
+# OS Files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Temporary files & browser data
+.edge-temp/
+*.log
+test.png
+screenshot*.png
+
+# Node / local server
+node_modules/
+.vscode/
+.idea/

@@ -1,0 +1,1018 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="AEGIS is a security intelligence platform concept for monitoring threats, incidents, endpoints, and network activity.">
+  <meta name="theme-color" content="#06090e">
+  <meta name="color-scheme" content="dark">
+  <title>AEGIS — Security Intelligence Platform</title>
+
+  <!-- Open Graph / Meta -->
+  <meta property="og:title" content="AEGIS — Security Intelligence Platform">
+  <meta property="og:description" content="Next-generation security operations center platform for monitoring infrastructure, investigating threats, and analyzing cyber incidents.">
+  <meta property="og:type" content="website">
+
+  <!-- Typography: Inter & JetBrains Mono -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+  <!-- Stylesheets -->
+  <link rel="stylesheet" href="css/variables.css">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/components.css">
+  <link rel="stylesheet" href="css/dashboard.css">
+  <link rel="stylesheet" href="css/responsive.css">
+</head>
+<body>
+  <!-- Accessibility: Skip Link -->
+  <a href="#main-content" class="skip-link">Skip to main content</a>
+
+  <div class="app-container">
+    <!-- ====================================================================
+         GLOBAL APPLICATION SHELL: SIDEBAR
+         ==================================================================== -->
+    <aside id="app-sidebar" class="app-sidebar" aria-label="Main Navigation">
+      <div class="sidebar-header">
+        <a href="#/overview" class="brand-logo-wrap" title="AEGIS Platform Home">
+          <!-- Geometric Aegis Shield SVG Logo -->
+          <svg class="brand-shield-svg" viewBox="0 0 32 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+            <path d="M16 2L3 7.5V17C3 24.8 8.6 31.9 16 34C23.4 31.9 29 24.8 29 17V7.5L16 2Z" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M16 8L8 12V17.5C8 22.2 11.4 26.6 16 28C20.6 26.6 24 22.2 24 17.5V12L16 8Z" fill="rgba(0, 242, 254, 0.12)" stroke="currentColor" stroke-width="1.6"/>
+            <circle cx="16" cy="18" r="2.5" fill="currentColor"/>
+          </svg>
+          <div class="brand-text">
+            <span class="brand-name">AEGIS</span>
+            <span class="brand-tagline">Security Intelligence</span>
+          </div>
+        </a>
+      </div>
+
+      <nav class="sidebar-nav" aria-label="Platform Views">
+        <div class="nav-section-label">Operations</div>
+        
+        <a href="#/overview" class="nav-item is-active" data-route="overview" aria-current="page">
+          <div class="nav-label-wrap">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/>
+            </svg>
+            <span>Overview</span>
+          </div>
+        </a>
+
+        <a href="#/network" class="nav-item" data-route="network">
+          <div class="nav-label-wrap">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/>
+            </svg>
+            <span>Network</span>
+          </div>
+        </a>
+
+        <a href="#/threats" class="nav-item" data-route="threats">
+          <div class="nav-label-wrap">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+            </svg>
+            <span>Threats</span>
+          </div>
+          <span class="nav-badge badge-high" title="Active Detections">7</span>
+        </a>
+
+        <a href="#/incidents" class="nav-item" data-route="incidents">
+          <div class="nav-label-wrap">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="10"/><line x1="12" y1="8" x2="12" y2="12"/><line x1="12" y1="16" x2="12.01" y2="16"/>
+            </svg>
+            <span>Incidents</span>
+          </div>
+          <span class="nav-badge badge-critical" title="Open Incidents">3</span>
+        </a>
+
+        <div class="nav-section-label" style="margin-top: var(--space-md);">Intelligence</div>
+
+        <a href="#/analytics" class="nav-item" data-route="analytics">
+          <div class="nav-label-wrap">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <line x1="18" y1="20" x2="18" y2="10"/><line x1="12" y1="20" x2="12" y2="4"/><line x1="6" y1="20" x2="6" y2="14"/>
+            </svg>
+            <span>Analytics</span>
+          </div>
+        </a>
+
+        <a href="#/endpoints" class="nav-item" data-route="endpoints">
+          <div class="nav-label-wrap">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/>
+            </svg>
+            <span>Endpoints</span>
+          </div>
+        </a>
+
+        <div class="nav-section-label" style="margin-top: var(--space-md);">Management</div>
+
+        <a href="#/settings" class="nav-item settings-link" data-route="settings">
+          <div class="nav-label-wrap">
+            <svg class="nav-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="12" cy="12" r="3"/><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"/>
+            </svg>
+            <span>Settings</span>
+          </div>
+        </a>
+      </nav>
+
+      <!-- Sidebar Status Card -->
+      <div class="sidebar-footer">
+        <div class="health-status-card">
+          <div class="health-status-info">
+            <span class="health-label">Fleet Status</span>
+            <span class="health-val">
+              <span class="health-pulse-dot"></span>
+              99.98% Healthy
+            </span>
+          </div>
+          <span style="font-family:var(--font-mono); font-size:10px; color:var(--text-muted);">SOC T-3</span>
+        </div>
+      </div>
+    </aside>
+
+    <!-- ====================================================================
+         MAIN APP CONTAINER: TOPBAR & CONTENT
+         ==================================================================== -->
+    <main id="main-content" class="app-main" tabindex="-1">
+      <!-- Topbar Header -->
+      <header class="app-topbar">
+        <div class="topbar-left">
+          <button id="mobile-menu-trigger" class="mobile-menu-trigger" aria-label="Open Navigation Menu">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+          </button>
+          
+          <nav class="breadcrumbs" aria-label="Breadcrumb">
+            <span class="breadcrumb-root">AEGIS</span>
+            <span class="breadcrumb-separator">/</span>
+            <span id="breadcrumb-current" class="breadcrumb-current">OVERVIEW</span>
+          </nav>
+        </div>
+
+        <div class="topbar-center">
+          <button class="search-command-btn" aria-label="Global Search">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+            <span>Search assets, threats, incidents...</span>
+            <kbd class="search-kbd-shortcut">Ctrl K</kbd>
+          </button>
+        </div>
+
+        <div class="topbar-right">
+          <div class="system-status-indicator" title="Global Security SLA Nominal">
+            <span class="status-dot-nominal"></span>
+            <span>ALL SYSTEMS NOMINAL</span>
+          </div>
+
+          <!-- Notification Bell -->
+          <div class="notif-wrapper">
+            <button id="notif-btn" class="icon-btn" aria-label="View Alerts and Notifications" aria-expanded="false">
+              <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 8A6 6 0 0 0 6 8c0 7-3 9-3 9h18s-3-2-3-9"/><path d="M13.73 21a2 2 0 0 1-3.46 0"/></svg>
+              <span id="notif-badge" class="notif-badge-pill">2</span>
+            </button>
+            <div id="notif-panel" class="notif-panel" role="region" aria-label="Alerts Dropdown">
+              <div class="notif-header">
+                <span class="notif-title">Real-Time SOC Alerts</span>
+                <button id="notif-clear-btn" class="notif-clear-btn">Mark All Read</button>
+              </div>
+              <ul id="notif-list" class="notif-list"></ul>
+            </div>
+          </div>
+
+          <!-- Analyst Profile -->
+          <div class="user-profile-badge" title="Authenticated Security Analyst">
+            <div class="user-avatar">AV</div>
+            <div class="user-meta">
+              <span class="user-name">Alex Vance</span>
+              <span class="user-role">Tier 3 SOC</span>
+            </div>
+          </div>
+        </div>
+      </header>
+
+      <!-- Content Views Wrapper -->
+      <div class="content-wrapper">
+
+        <!-- ================================================================
+             VIEW 1: OVERVIEW DASHBOARD
+             ================================================================ -->
+        <section id="view-overview" class="page-view is-active" aria-labelledby="overview-heading">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="overview-heading" class="page-title">Good evening, Security Team.</h1>
+              <p class="page-subtitle">Here's the current state of your security environment.</p>
+            </div>
+            <div class="page-header-actions">
+              <span style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--text-muted); display:flex; align-items:center; gap:6px;">
+                <span class="status-dot-nominal" style="width:6px; height:6px;"></span>
+                Telemetry Live: <span id="ticker-eps" style="color:var(--text-primary); font-weight:600;">14,280 eps</span>
+              </span>
+            </div>
+          </div>
+
+          <!-- Top Metrics Grid -->
+          <div class="metrics-grid">
+            <div class="metric-card accent-threat">
+              <div class="metric-top">
+                <span class="metric-label">Active Threats</span>
+                <div class="metric-icon-wrap" style="color:var(--color-high);">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                </div>
+              </div>
+              <div class="metric-val-row">
+                <span class="metric-val">07</span>
+                <span class="metric-trend trend-negative">+2 new</span>
+              </div>
+              <p class="metric-sub">2 critical requiring immediate triage</p>
+            </div>
+
+            <div class="metric-card accent-cyan">
+              <div class="metric-top">
+                <span class="metric-label">Protected Assets</span>
+                <div class="metric-icon-wrap">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2" ry="2"/><line x1="8" y1="21" x2="16" y2="21"/></svg>
+                </div>
+              </div>
+              <div class="metric-val-row">
+                <span class="metric-val">1,284</span>
+                <span class="metric-trend trend-positive">99.4%</span>
+              </div>
+              <p class="metric-sub">Across 4 cloud regions & campus VPCs</p>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <span class="metric-label">Security Events</span>
+                <div class="metric-icon-wrap" style="color:#a5b4fc;">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="22 12 18 12 15 21 9 3 6 12 2 12"/></svg>
+                </div>
+              </div>
+              <div class="metric-val-row">
+                <span class="metric-val">24.8K</span>
+                <span class="metric-trend trend-positive">+4.1%</span>
+              </div>
+              <p class="metric-sub">Normalized via Sigma detection rules</p>
+            </div>
+
+            <div class="metric-card accent-success">
+              <div class="metric-top">
+                <span class="metric-label">System Health</span>
+                <div class="metric-icon-wrap" style="color:var(--color-success);">
+                  <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+                </div>
+              </div>
+              <div class="metric-val-row">
+                <span class="metric-val">99.98%</span>
+                <span class="metric-trend trend-positive">Nominal</span>
+              </div>
+              <p class="metric-sub">Zero-Trust perimeter policy active</p>
+            </div>
+          </div>
+
+          <!-- Central Security Status Banner -->
+          <div class="overview-status-banner">
+            <div class="status-viz-card">
+              <div class="radial-status-gauge" aria-label="System status 99.98% protected">
+                <svg class="gauge-svg" viewBox="0 0 160 160">
+                  <circle class="gauge-track" cx="80" cy="80" r="70" />
+                  <circle class="gauge-progress" cx="80" cy="80" r="70" />
+                </svg>
+                <div class="gauge-inner-content">
+                  <svg class="gauge-shield-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                  <span class="gauge-val">99.98%</span>
+                  <span class="gauge-label">DEFENDED</span>
+                </div>
+              </div>
+
+              <div class="status-details-content">
+                <div class="status-badge-row">
+                  <span class="badge badge-success"><span class="badge-dot"></span>ACTIVE DEFENSE</span>
+                  <span style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--text-muted);">SLA: TIER-1 COMPLIANT</span>
+                </div>
+                <h2 class="status-headline">SYSTEM STATUS: PROTECTED</h2>
+                <p class="status-description">
+                  Automated threat deflection pipelines are enforcing micro-segmentation. Zero-Trust ingress gateways report zero unauthorized privilege escalation in the past 24 hours.
+                </p>
+                <div class="engine-chips-grid">
+                  <span class="engine-chip"><span class="chip-status-dot"></span>Zero-Trust Gatekeeper</span>
+                  <span class="engine-chip"><span class="chip-status-dot"></span>Neural Anomaly Engine</span>
+                  <span class="engine-chip"><span class="chip-status-dot"></span>EDR Pulse Telemetry</span>
+                  <span class="engine-chip"><span class="chip-status-dot"></span>Sigma Pipeline</span>
+                </div>
+              </div>
+            </div>
+
+            <!-- SOC Readiness Sidebar -->
+            <div class="soc-readiness-card">
+              <div class="readiness-header">
+                <span class="readiness-title">SOC Telemetry Snapshot</span>
+                <span class="badge badge-low">LIVE</span>
+              </div>
+              <div class="readiness-list">
+                <div class="readiness-row">
+                  <span class="readiness-k">Mean Time to Detect</span>
+                  <span class="readiness-v" style="color:var(--accent-cyan);">1.8m</span>
+                </div>
+                <div class="readiness-row">
+                  <span class="readiness-k">Mean Time to Respond</span>
+                  <span class="readiness-v" style="color:var(--color-success);">4.2m</span>
+                </div>
+                <div class="readiness-row">
+                  <span class="readiness-k">Autonomous Deflection</span>
+                  <span class="readiness-v">95.1%</span>
+                </div>
+                <div class="readiness-row">
+                  <span class="readiness-k">Threat Hunting Sprints</span>
+                  <span class="readiness-v">4 Active</span>
+                </div>
+                <div class="readiness-row">
+                  <span class="readiness-k">Quarantined Hosts</span>
+                  <span class="readiness-v" style="color:var(--color-high);">1 Device</span>
+                </div>
+              </div>
+              <button class="btn btn-secondary btn-sm" onclick="window.AEGIS_NAV.navigateTo('threats')" style="width:100%;">
+                Open Threat Hunting Console
+              </button>
+            </div>
+          </div>
+
+          <!-- Bottom Row: Realtime Activity Wave + Recent Incidents -->
+          <div class="overview-grid-2col">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap">
+                  <h3 class="card-title">Network Activity Telemetry</h3>
+                  <span class="card-subtitle">Real-time packet ingestion rate (eps) across edge gateways</span>
+                </div>
+                <span class="badge badge-neutral">STREAMING</span>
+              </div>
+              <div class="card-body">
+                <div class="chart-container-box">
+                  <canvas id="overview-activity-chart" class="chart-canvas"></canvas>
+                </div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap">
+                  <h3 class="card-title">Recent Security Incidents</h3>
+                  <span class="card-subtitle">Requiring analyst oversight or containment</span>
+                </div>
+                <button class="btn btn-ghost btn-sm" onclick="window.AEGIS_NAV.navigateTo('incidents')">
+                  View All &rarr;
+                </button>
+              </div>
+              <div class="card-body">
+                <div id="overview-incident-stream" class="incident-stream-list"></div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             VIEW 2: NETWORK INTELLIGENCE
+             ================================================================ -->
+        <section id="view-network" class="page-view" aria-labelledby="network-heading">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="network-heading" class="page-title">NETWORK INTELLIGENCE</h1>
+              <p class="page-subtitle">Monitor relationships between protected assets and external activity.</p>
+            </div>
+            <div class="page-header-actions">
+              <span class="badge badge-low">48 Monitored Nodes</span>
+              <span class="badge badge-neutral">Fiber 40G Mesh</span>
+            </div>
+          </div>
+
+          <div class="network-layout-wrapper">
+            <div class="network-canvas-card">
+              <!-- Toolbar -->
+              <div class="network-toolbar">
+                <div class="network-filter-pills" role="group" aria-label="Network topology filters">
+                  <button class="filter-pill-btn is-active" data-filter="ALL">ALL</button>
+                  <button class="filter-pill-btn" data-filter="INTERNAL">INTERNAL</button>
+                  <button class="filter-pill-btn" data-filter="EXTERNAL">EXTERNAL</button>
+                  <button class="filter-pill-btn" data-filter="CRITICAL">CRITICAL</button>
+                </div>
+
+                <div class="network-zoom-controls" role="group" aria-label="Canvas zoom controls">
+                  <button id="net-zoom-in" class="filter-pill-btn" title="Zoom In">+</button>
+                  <button id="net-zoom-out" class="filter-pill-btn" title="Zoom Out">&minus;</button>
+                  <button id="net-zoom-reset" class="filter-pill-btn" title="Reset View">Reset</button>
+                </div>
+              </div>
+
+              <!-- Interactive Canvas -->
+              <div class="network-canvas-viewport">
+                <canvas id="network-canvas"></canvas>
+              </div>
+
+              <!-- Legend -->
+              <div class="network-legend-bar">
+                <div class="legend-item"><span class="legend-dot-crit"></span> Critical Link</div>
+                <div class="legend-item"><span class="legend-dot-warn"></span> Anomaly / Warning</div>
+                <div class="legend-item"><span class="legend-dot-ok"></span> Protected Mesh</div>
+                <span style="color:var(--text-dim);">|</span>
+                <span style="font-size:11px;">Drag to Pan • Click Node to Inspect</span>
+              </div>
+            </div>
+
+            <!-- Live Topology Inspector -->
+            <div class="node-inspector-card">
+              <div style="display:flex; align-items:center; justify-content:space-between;">
+                <span style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--text-muted); text-transform:uppercase;">Asset Inspector</span>
+                <span id="inspector-status" class="badge badge-critical">CRITICAL</span>
+              </div>
+
+              <div style="border-bottom:1px solid var(--border-subtle); padding-bottom:var(--space-sm);">
+                <h3 id="inspector-asset" style="font-size:var(--text-lg); font-weight:700; color:var(--text-primary);">EXT-TOR-EXIT</h3>
+                <span id="inspector-ip" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--accent-blue);">185.220.101.5</span>
+              </div>
+
+              <div class="node-prop-group">
+                <span class="node-prop-label">Topology Classification</span>
+                <span id="inspector-tier" class="node-prop-val">External IP (EXTERNAL)</span>
+              </div>
+
+              <div class="node-prop-group">
+                <span class="node-prop-label">Live Throughput</span>
+                <span id="inspector-traffic" class="node-prop-val">1.4 MB/s</span>
+              </div>
+
+              <div class="node-prop-group">
+                <span class="node-prop-label">Connected Mesh Peers</span>
+                <span id="inspector-peers" class="node-prop-val">1 Ingress Trunk</span>
+              </div>
+
+              <div id="inspector-risk" style="margin-top:var(--space-xs);"></div>
+
+              <div id="inspector-actions" style="margin-top:var(--space-sm); display:flex; flex-direction:column; gap:6px;"></div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             VIEW 3: THREAT INTELLIGENCE
+             ================================================================ -->
+        <section id="view-threats" class="page-view" aria-labelledby="threats-heading">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="threats-heading" class="page-title">THREAT INTELLIGENCE</h1>
+              <p class="page-subtitle">Global indicators of compromise, automated heuristic detections, and active threat actors.</p>
+            </div>
+            <div class="page-header-actions">
+              <span id="threats-count-badge" class="badge badge-high">7 Detections</span>
+            </div>
+          </div>
+
+          <!-- Filter & Search Bar -->
+          <div class="filter-bar">
+            <div class="input-search-wrap">
+              <svg class="input-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="threat-search-input" class="input-search" placeholder="Search threat name, ID, source, target...">
+            </div>
+
+            <div class="filter-group">
+              <select id="threat-severity-select" class="select-custom" aria-label="Filter by Severity">
+                <option value="ALL">Severity: All</option>
+                <option value="CRITICAL">Critical</option>
+                <option value="HIGH">High</option>
+                <option value="MEDIUM">Medium</option>
+                <option value="LOW">Low</option>
+              </select>
+
+              <select id="threat-status-select" class="select-custom" aria-label="Filter by Status">
+                <option value="ALL">Status: All</option>
+                <option value="INVESTIGATING">Investigating</option>
+                <option value="MONITORING">Monitoring</option>
+                <option value="CONTAINED">Contained</option>
+                <option value="MITIGATED">Mitigated</option>
+              </select>
+
+              <select id="threat-sort-select" class="select-custom" aria-label="Sort Threats">
+                <option value="time-desc">Sort: Risk Score</option>
+                <option value="severity">Sort: Severity Rank</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Threats Table -->
+          <div class="card">
+            <div class="table-responsive">
+              <table class="data-table" aria-label="Threat Detections Table">
+                <thead>
+                  <tr>
+                    <th scope="col">Threat & Identifier</th>
+                    <th scope="col">Severity</th>
+                    <th scope="col">Source / Subnet</th>
+                    <th scope="col">Target Asset</th>
+                    <th scope="col">Detected</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="threats-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             VIEW 4: INCIDENT CENTER
+             ================================================================ -->
+        <section id="view-incidents" class="page-view" aria-labelledby="incidents-heading">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="incidents-heading" class="page-title">INCIDENT CENTER</h1>
+              <p class="page-subtitle">Triage, containment protocols, and multi-stage forensic case tracking.</p>
+            </div>
+            <div class="page-header-actions">
+              <div id="incident-tabs" class="tab-nav" role="tablist">
+                <button class="tab-btn is-active" data-tab="ALL" role="tab">All <span id="tab-count-all" class="tab-count">5</span></button>
+                <button class="tab-btn" data-tab="ACTIVE" role="tab">Active <span id="tab-count-active" class="tab-count">1</span></button>
+                <button class="tab-btn" data-tab="INVESTIGATING" role="tab">Investigating <span id="tab-count-investigating" class="tab-count">2</span></button>
+                <button class="tab-btn" data-tab="RESOLVED" role="tab">Resolved <span id="tab-count-resolved" class="tab-count">2</span></button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Incidents Grid -->
+          <div id="incidents-container" class="incident-card-grid"></div>
+        </section>
+
+        <!-- ================================================================
+             VIEW 5: SECURITY ANALYTICS
+             ================================================================ -->
+        <section id="view-analytics" class="page-view" aria-labelledby="analytics-heading">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="analytics-heading" class="page-title">SECURITY ANALYTICS</h1>
+              <p class="page-subtitle">Deep telemetry analysis, threat vectors, deflection rates, and response metrics.</p>
+            </div>
+            <div class="page-header-actions">
+              <div class="tab-nav" role="group" aria-label="Timeframe Range Filter">
+                <button class="tab-btn analytics-range-btn is-active" data-range="24H">24H</button>
+                <button class="tab-btn analytics-range-btn" data-range="7D">7D</button>
+                <button class="tab-btn analytics-range-btn" data-range="30D">30D</button>
+                <button class="tab-btn analytics-range-btn" data-range="90D">90D</button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Analytics Metric Cards -->
+          <div class="metrics-grid">
+            <div class="metric-card accent-threat">
+              <div class="metric-top">
+                <span class="metric-label">Total Threats Detected</span>
+                <span style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--text-muted);">Period</span>
+              </div>
+              <div class="metric-val-row">
+                <span id="analytics-total-threats" class="metric-val">142</span>
+              </div>
+              <p class="metric-sub">Correlated across 34 edge points</p>
+            </div>
+
+            <div class="metric-card accent-cyan">
+              <div class="metric-top">
+                <span class="metric-label">Automated Deflection</span>
+                <span style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-success);">High SLA</span>
+              </div>
+              <div class="metric-val-row">
+                <span id="analytics-blocked-threats" class="metric-val">95.1%</span>
+              </div>
+              <p class="metric-sub">Blocked instantly at WAF / EDR layer</p>
+            </div>
+
+            <div class="metric-card">
+              <div class="metric-top">
+                <span class="metric-label">Events Analyzed</span>
+                <span style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--text-muted);">Total</span>
+              </div>
+              <div class="metric-val-row">
+                <span id="analytics-events-analyzed" class="metric-val">24,812</span>
+              </div>
+              <p class="metric-sub">Ingested into Sigma heuristic graph</p>
+            </div>
+
+            <div class="metric-card accent-success">
+              <div class="metric-top">
+                <span class="metric-label">Mean Response Time</span>
+                <span id="analytics-mttr-change" class="metric-trend trend-positive">-18.4%</span>
+              </div>
+              <div class="metric-val-row">
+                <span id="analytics-mttr" class="metric-val">4.2m</span>
+              </div>
+              <p class="metric-sub">Faster than SOC baseline benchmark</p>
+            </div>
+          </div>
+
+          <!-- Dual Column Charts -->
+          <div class="analytics-grid-2col">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap">
+                  <h3 class="card-title">Threat Activity Timeline</h3>
+                  <span class="card-subtitle">Volume of blocked threats vs escalated investigations</span>
+                </div>
+                <div style="display:flex; align-items:center; gap:var(--space-sm); font-family:var(--font-mono); font-size:11px;">
+                  <span style="display:flex; align-items:center; gap:4px; color:var(--accent-cyan);"><span style="width:8px; height:8px; background:var(--accent-cyan); border-radius:2px;"></span>Blocked</span>
+                  <span style="display:flex; align-items:center; gap:4px; color:var(--color-medium);"><span style="width:8px; height:8px; background:var(--color-medium); border-radius:2px;"></span>Investigated</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <canvas id="analytics-timeline-chart" style="width:100%; height:260px;"></canvas>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap">
+                  <h3 class="card-title">Security Events by Classification</h3>
+                  <span class="card-subtitle">Normalized distribution across threat categories</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div id="analytics-categories-list" class="category-bar-list"></div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Bottom 2-Col: Attack Vectors & Fleet Health -->
+          <div class="analytics-grid-2col">
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap">
+                  <h3 class="card-title">Attack Vectors Ranked by Risk</h3>
+                  <span class="card-subtitle">Observed frequency & adversary sophistication score</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div id="analytics-vectors-list" style="display:flex; flex-direction:column; gap:var(--space-sm);"></div>
+              </div>
+            </div>
+
+            <div class="card">
+              <div class="card-header">
+                <div class="card-title-wrap">
+                  <h3 class="card-title">Fleet Compliance Posture</h3>
+                  <span class="card-subtitle">Managed endpoint security status across enterprise</span>
+                </div>
+              </div>
+              <div class="card-body">
+                <div style="display:grid; grid-template-columns:repeat(3, 1fr); gap:var(--space-md); text-align:center; margin-bottom:var(--space-lg);">
+                  <div style="background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:var(--space-md);">
+                    <span style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-success);">HEALTHY</span>
+                    <h4 id="posture-healthy" style="font-size:1.6rem; color:var(--text-primary); margin-top:4px;">1,248</h4>
+                    <span style="font-size:11px; color:var(--text-muted);">97.2% Fleet</span>
+                  </div>
+                  <div style="background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:var(--space-md);">
+                    <span style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-medium);">WARNING</span>
+                    <h4 id="posture-warning" style="font-size:1.6rem; color:var(--text-primary); margin-top:4px;">28</h4>
+                    <span style="font-size:11px; color:var(--text-muted);">Patch Pending</span>
+                  </div>
+                  <div style="background:var(--bg-surface); border:1px solid var(--border-subtle); border-radius:var(--radius-md); padding:var(--space-md);">
+                    <span style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--color-critical);">CRITICAL</span>
+                    <h4 id="posture-critical" style="font-size:1.6rem; color:var(--text-primary); margin-top:4px;">8</h4>
+                    <span style="font-size:11px; color:var(--text-muted);">Quarantined</span>
+                  </div>
+                </div>
+
+                <div style="background:rgba(0, 242, 254, 0.04); border:1px solid var(--border-accent); border-radius:var(--radius-md); padding:var(--space-md); display:flex; align-items:center; gap:var(--space-md);">
+                  <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="12" y1="16" x2="12" y2="12"/><line x1="12" y1="8" x2="12.01" y2="8"/></svg>
+                  <p style="font-size:var(--text-xs); color:var(--text-secondary); line-height:1.5;">
+                    Autonomous remediation agent is actively rolling out signature bundle <code>2026.09-R4</code> to 28 warning endpoints. Expected convergence within 30 minutes.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             VIEW 6: ENDPOINT SECURITY
+             ================================================================ -->
+        <section id="view-endpoints" class="page-view" aria-labelledby="endpoints-heading">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="endpoints-heading" class="page-title">ENDPOINT SECURITY</h1>
+              <p class="page-subtitle">Real-time fleet posture, EDR telemetry, process execution, and network isolation.</p>
+            </div>
+            <div class="page-header-actions">
+              <span id="endpoints-count-badge" class="badge badge-low">10 Managed Devices</span>
+            </div>
+          </div>
+
+          <!-- Filter & Search Bar -->
+          <div class="filter-bar">
+            <div class="input-search-wrap">
+              <svg class="input-search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+              <input type="text" id="endpoint-search-input" class="input-search" placeholder="Search device name, IP address, user...">
+            </div>
+
+            <div class="filter-group">
+              <select id="endpoint-os-select" class="select-custom" aria-label="Filter by Operating System">
+                <option value="ALL">OS: All Platforms</option>
+                <option value="Windows">Windows</option>
+                <option value="Linux">Linux</option>
+                <option value="macOS">macOS</option>
+              </select>
+
+              <select id="endpoint-risk-select" class="select-custom" aria-label="Filter by Risk Level">
+                <option value="ALL">Risk: All Levels</option>
+                <option value="Critical">Critical</option>
+                <option value="High">High</option>
+                <option value="Medium">Medium</option>
+                <option value="Low">Low</option>
+              </select>
+
+              <select id="endpoint-status-select" class="select-custom" aria-label="Filter by Protection Status">
+                <option value="ALL">Status: All</option>
+                <option value="Protected">Protected</option>
+                <option value="Attention">Attention</option>
+                <option value="Isolated">Isolated</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Endpoints Table -->
+          <div class="card">
+            <div class="table-responsive">
+              <table class="data-table" aria-label="Managed Devices Table">
+                <thead>
+                  <tr>
+                    <th scope="col">Device & IP</th>
+                    <th scope="col">Type</th>
+                    <th scope="col">Operating System</th>
+                    <th scope="col">Risk Level</th>
+                    <th scope="col">Last Seen</th>
+                    <th scope="col">Status</th>
+                  </tr>
+                </thead>
+                <tbody id="endpoints-table-body"></tbody>
+              </table>
+            </div>
+          </div>
+        </section>
+
+        <!-- ================================================================
+             VIEW 7: PLATFORM SETTINGS
+             ================================================================ -->
+        <section id="view-settings" class="page-view" aria-labelledby="settings-heading">
+          <div class="page-header">
+            <div class="page-title-group">
+              <h1 id="settings-heading" class="page-title">PLATFORM SETTINGS</h1>
+              <p class="page-subtitle">Enterprise SOC configuration, alerting thresholds, access control, and preferences.</p>
+            </div>
+            <div class="page-header-actions">
+              <button id="btn-reset-settings" class="btn btn-ghost btn-sm">Reset Defaults</button>
+              <button id="btn-save-settings" class="btn btn-primary btn-sm">Save Changes</button>
+            </div>
+          </div>
+
+          <div class="settings-layout">
+            <!-- Settings Nav -->
+            <nav class="settings-nav" aria-label="Settings Categories">
+              <button class="settings-nav-item is-active" data-section="general">General</button>
+              <button class="settings-nav-item" data-section="notifications">Notifications</button>
+              <button class="settings-nav-item" data-section="security">Security & Access</button>
+              <button class="settings-nav-item" data-section="appearance">Appearance & Audio</button>
+            </nav>
+
+            <!-- Settings Content Cards -->
+            <div class="settings-content-wrap">
+              <!-- SECTION: GENERAL -->
+              <div id="section-general" class="settings-section-card">
+                <div class="settings-group">
+                  <h3 class="settings-group-title">Organization & SOC Profile</h3>
+                  <p class="settings-group-desc">Core tenancy details displayed across alerts and telemetry reports.</p>
+                  
+                  <div style="display:flex; flex-direction:column; gap:6px; max-width:480px;">
+                    <label for="setting-org-name" style="font-size:var(--text-xs); color:var(--text-secondary); font-weight:500;">Organization Name</label>
+                    <input type="text" id="setting-org-name" class="input-search" style="padding-left:12px;" value="Aegis Global Operations (SOC Prime)">
+                  </div>
+
+                  <div style="display:grid; grid-template-columns:1fr 1fr; gap:var(--space-md); max-width:480px; margin-top:4px;">
+                    <div>
+                      <label for="setting-timezone" style="font-size:var(--text-xs); color:var(--text-secondary); font-weight:500;">Primary SOC Timezone</label>
+                      <select id="setting-timezone" class="select-custom" style="width:100%; margin-top:4px;">
+                        <option value="UTC">UTC (Coordinated Universal)</option>
+                        <option value="EST">EST (US Eastern)</option>
+                        <option value="PST">PST (US Pacific)</option>
+                        <option value="GMT">GMT (London)</option>
+                      </select>
+                    </div>
+
+                    <div>
+                      <label for="setting-telemetry-rate" style="font-size:var(--text-xs); color:var(--text-secondary); font-weight:500;">Ingest Frequency</label>
+                      <select id="setting-telemetry-rate" class="select-custom" style="width:100%; margin-top:4px;">
+                        <option value="realtime">Real-Time Streaming (1s)</option>
+                        <option value="5s">Aggregated (5s pulse)</option>
+                        <option value="30s">Batch Window (30s)</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="settings-group">
+                  <h3 class="settings-group-title">Telemetry Retention & Archival</h3>
+                  <p class="settings-group-desc">Define forensic data lifecycle retention before cold storage migration.</p>
+
+                  <div style="max-width:320px;">
+                    <label for="setting-archive-days" style="font-size:var(--text-xs); color:var(--text-secondary); font-weight:500;">Event Retention Window</label>
+                    <select id="setting-archive-days" class="select-custom" style="width:100%; margin-top:4px;">
+                      <option value="30">30 Days (Hot In-Memory)</option>
+                      <option value="90" selected>90 Days (Recommended)</option>
+                      <option value="180">180 Days (Compliance Extended)</option>
+                      <option value="365">365 Days (Full Year Immutable)</option>
+                    </select>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SECTION: NOTIFICATIONS -->
+              <div id="section-notifications" class="settings-section-card" style="display:none;">
+                <div class="settings-group">
+                  <h3 class="settings-group-title">Automated Incident Alert Routing</h3>
+                  <p class="settings-group-desc">Configure escalation dispatch channels for high and critical threats.</p>
+
+                  <label class="toggle-label">
+                    <div class="toggle-info">
+                      <span class="toggle-title">PagerDuty Critical Escalation</span>
+                      <span class="toggle-desc">Trigger high-urgency on-call page for P0 incidents</span>
+                    </div>
+                    <input type="checkbox" id="setting-pagerduty" class="switch-input" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+
+                  <label class="toggle-label">
+                    <div class="toggle-info">
+                      <span class="toggle-title">Slack Security Channel Webhook</span>
+                      <span class="toggle-desc">Broadcast real-time IOC detections to #soc-war-room</span>
+                    </div>
+                    <input type="checkbox" id="setting-slack" class="switch-input" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+
+                  <label class="toggle-label">
+                    <div class="toggle-info">
+                      <span class="toggle-title">SMS Emergency Dispatch</span>
+                      <span class="toggle-desc">Send encrypted SMS alert to CIRT Incident Commander</span>
+                    </div>
+                    <input type="checkbox" id="setting-sms-p0" class="switch-input" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+
+                  <label class="toggle-label">
+                    <div class="toggle-info">
+                      <span class="toggle-title">Daily Executive Briefing</span>
+                      <span class="toggle-desc">Email summarized posture & MTTR statistics at 06:00 UTC</span>
+                    </div>
+                    <input type="checkbox" id="setting-briefing" class="switch-input" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- SECTION: SECURITY & ACCESS -->
+              <div id="section-security" class="settings-section-card" style="display:none;">
+                <div class="settings-group">
+                  <h3 class="settings-group-title">Authentication & Identity Governance</h3>
+                  <p class="settings-group-desc">Enforce rigorous zero-trust controls for SOC console operators.</p>
+
+                  <div style="max-width:320px; margin-bottom:var(--space-md);">
+                    <label for="setting-session-timeout" style="font-size:var(--text-xs); color:var(--text-secondary); font-weight:500;">Session Inactivity Timeout</label>
+                    <select id="setting-session-timeout" class="select-custom" style="width:100%; margin-top:4px;">
+                      <option value="15">15 Minutes</option>
+                      <option value="30" selected>30 Minutes (Standard SOC)</option>
+                      <option value="60">60 Minutes</option>
+                    </select>
+                  </div>
+
+                  <label class="toggle-label">
+                    <div class="toggle-info">
+                      <span class="toggle-title">Mandatory Hardware Token (FIDO2 / WebAuthn)</span>
+                      <span class="toggle-desc">Reject SMS and standard TOTP authenticator methods</span>
+                    </div>
+                    <input type="checkbox" id="setting-mfa" class="switch-input" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+
+                  <label class="toggle-label">
+                    <div class="toggle-info">
+                      <span class="toggle-title">Dual-Custody Quarantine Authorization</span>
+                      <span class="toggle-desc">Require approval from two Tier-3 leads before fleet isolation</span>
+                    </div>
+                    <input type="checkbox" id="setting-dual-custody" class="switch-input">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+
+                <div class="settings-group">
+                  <h3 class="settings-group-title">Ingestion API Credentials</h3>
+                  <p class="settings-group-desc">API key utilized by EDR sensor fleet to push telemetry to Aegis ingest proxy.</p>
+                  
+                  <div style="display:flex; gap:var(--space-sm); max-width:540px; margin-top:4px;">
+                    <input type="text" id="api-key-display" readonly value="aegis_live_sec_8f912c4019a2b8e390c1f288" class="input-search" style="font-family:var(--font-mono); font-size:12px; color:var(--accent-cyan);">
+                    <button class="btn btn-secondary btn-sm" id="btn-rotate-api-key">Rotate Key</button>
+                  </div>
+                </div>
+              </div>
+
+              <!-- SECTION: APPEARANCE & AUDIO -->
+              <div id="section-appearance" class="settings-section-card" style="display:none;">
+                <div class="settings-group">
+                  <h3 class="settings-group-title">Display & Interactive Customization</h3>
+                  <p class="settings-group-desc">Calibrate interface feedback and pointer characteristics.</p>
+
+                  <label class="toggle-label">
+                    <div class="toggle-info">
+                      <span class="toggle-title">Technical Reticle Custom Cursor</span>
+                      <span class="toggle-desc">Enable high-precision desktop cursor with trailing ring</span>
+                    </div>
+                    <input type="checkbox" id="setting-custom-cursor" class="switch-input" checked>
+                    <span class="switch-slider"></span>
+                  </label>
+
+                  <label class="toggle-label">
+                    <div class="toggle-info">
+                      <span class="toggle-title">SOC Synthesizer Audio Chimes</span>
+                      <span class="toggle-desc">Web Audio feedback for critical alerts and successful containments</span>
+                    </div>
+                    <div style="display:flex; align-items:center; gap:var(--space-sm);">
+                      <button id="btn-test-chime" class="btn btn-ghost btn-sm" type="button">Test Chime</button>
+                      <input type="checkbox" id="setting-sound" class="switch-input">
+                      <span class="switch-slider"></span>
+                    </div>
+                  </label>
+
+                  <label class="toggle-label">
+                    <div class="toggle-info">
+                      <span class="toggle-title">High-Contrast Data Grid Mode</span>
+                      <span class="toggle-desc">Enhance table borders and text contrast for low-light control rooms</span>
+                    </div>
+                    <input type="checkbox" id="setting-high-contrast" class="switch-input">
+                    <span class="switch-slider"></span>
+                  </label>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+
+      </div>
+    </main>
+  </div>
+
+  <!-- ====================================================================
+       SLIDEOVER DRAWER PANEL (Used for Deep-Dives on all pages)
+       ==================================================================== -->
+  <div id="slideover-backdrop" class="slideover-backdrop" aria-hidden="true"></div>
+  <aside id="slideover-panel" class="slideover-panel" role="dialog" aria-modal="true" aria-labelledby="slideover-title">
+    <div class="slideover-header">
+      <div>
+        <h2 id="slideover-title" style="font-size:var(--text-lg); font-weight:700; color:var(--text-primary); line-height:1.2;">Inspection Detail</h2>
+        <span id="slideover-subtitle" style="font-family:var(--font-mono); font-size:var(--text-xs); color:var(--text-muted); margin-top:4px; display:block;">Telemetry Inspection</span>
+      </div>
+      <button id="slideover-close-btn" class="slideover-close-btn" aria-label="Close Inspection Panel">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
+      </button>
+    </div>
+    <div id="slideover-body" class="slideover-body"></div>
+    <div id="slideover-footer" class="slideover-footer"></div>
+  </aside>
+
+  <!-- ====================================================================
+       COMMAND PALETTE MODAL (Ctrl + K)
+       ==================================================================== -->
+  <div id="command-modal-backdrop" class="modal-backdrop" aria-hidden="true">
+    <div class="command-modal" role="dialog" aria-modal="true" aria-label="Command Palette">
+      <div class="command-input-wrap">
+        <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="var(--accent-cyan)" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <input type="text" id="command-search-input" class="command-search-input" placeholder="Type a route, threat ID, asset, or incident..." autocomplete="off">
+        <kbd class="search-kbd-shortcut">ESC</kbd>
+      </div>
+      <ul id="command-results" class="command-results-list" role="listbox"></ul>
+    </div>
+  </div>
+
+  <!-- Toast Notification Root -->
+  <div id="toast-container" class="toast-container" aria-live="polite"></div>
+
+  <!-- JavaScript Application Bundle -->
+  <script src="js/data.js"></script>
+  <script src="js/navigation.js"></script>
+  <script src="js/network.js"></script>
+  <script src="js/threats.js"></script>
+  <script src="js/incidents.js"></script>
+  <script src="js/analytics.js"></script>
+  <script src="js/endpoints.js"></script>
+  <script src="js/settings.js"></script>
+  <script src="js/app.js"></script>
+</body>
+</html>

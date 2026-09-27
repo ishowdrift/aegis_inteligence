@@ -1,0 +1,197 @@
+/**
+ * AEGIS - Base Styles, Reset, Accessible Focus, and Technical Custom Cursor
+ */
+
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  font-size: 16px;
+  scroll-behavior: smooth;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--bg-app);
+  color: var(--text-primary);
+  font-family: var(--font-sans);
+  font-size: var(--text-base);
+  line-height: 1.5;
+  overflow-x: hidden;
+  background-image: 
+    radial-gradient(circle at 18% 10%, rgba(0, 242, 254, 0.035) 0%, transparent 40%),
+    radial-gradient(circle at 85% 80%, rgba(2, 132, 199, 0.03) 0%, transparent 45%),
+    linear-gradient(rgba(255, 255, 255, 0.012) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(255, 255, 255, 0.012) 1px, transparent 1px);
+  background-size: 100% 100%, 100% 100%, 36px 36px, 36px 36px;
+  background-attachment: fixed;
+}
+
+/* Accessibility: Skip Link */
+.skip-link {
+  position: absolute;
+  top: -100px;
+  left: 1rem;
+  background: var(--accent-cyan);
+  color: #05080e;
+  font-weight: 700;
+  padding: 0.5rem 1rem;
+  border-radius: var(--radius-sm);
+  z-index: var(--z-modal);
+  text-decoration: none;
+  font-size: var(--text-sm);
+  transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+  top: 1rem;
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Focus States - High Visibility for Keyboard Navigation */
+:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+button:focus-visible,
+a:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+  outline: 2px solid var(--accent-cyan);
+  outline-offset: 2px;
+}
+
+/* Typography Hierarchy */
+h1, h2, h3, h4, h5, h6 {
+  color: var(--text-primary);
+  font-weight: 600;
+  letter-spacing: -0.02em;
+  line-height: 1.25;
+}
+
+p {
+  color: var(--text-secondary);
+}
+
+a {
+  color: var(--accent-cyan);
+  text-decoration: none;
+  transition: color var(--transition-fast);
+}
+
+a:hover {
+  color: #70f7ff;
+}
+
+code, kbd, samp, pre {
+  font-family: var(--font-mono);
+  font-size: 0.88em;
+}
+
+/* Selection Color */
+::selection {
+  background: rgba(0, 242, 254, 0.28);
+  color: #ffffff;
+}
+
+/* Custom Scrollbars */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--bg-app);
+}
+
+::-webkit-scrollbar-thumb {
+  background: #1b2438;
+  border-radius: var(--radius-full);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2b3956;
+}
+
+/* Technical Custom Cursor (Desktop Only) */
+@media (pointer: fine) {
+  body.has-custom-cursor {
+    cursor: default;
+  }
+
+  .cursor-dot {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 6px;
+    height: 6px;
+    background-color: var(--accent-cyan);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    transform: translate(-50%, -50%);
+    transition: opacity 0.2s ease, transform 0.08s ease-out;
+    box-shadow: 0 0 8px var(--accent-cyan);
+  }
+
+  .cursor-ring {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 28px;
+    height: 28px;
+    border: 1.5px solid rgba(0, 242, 254, 0.45);
+    border-radius: 50%;
+    pointer-events: none;
+    z-index: var(--z-cursor);
+    transform: translate(-50%, -50%);
+    transition: width 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                height 0.2s cubic-bezier(0.16, 1, 0.3, 1), 
+                border-color 0.2s ease, 
+                background-color 0.2s ease,
+                transform 0.12s ease-out;
+  }
+
+  .cursor-ring.is-hovered {
+    width: 44px;
+    height: 44px;
+    border-color: rgba(0, 242, 254, 0.85);
+    background-color: rgba(0, 242, 254, 0.06);
+  }
+
+  .cursor-ring.is-clicking {
+    width: 22px;
+    height: 22px;
+    border-color: var(--accent-cyan);
+    background-color: rgba(0, 242, 254, 0.2);
+  }
+}
+
+/* Disable Custom Cursor on Touch and Coarse Pointers */
+@media (pointer: coarse) {
+  .cursor-dot, .cursor-ring {
+    display: none !important;
+  }
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+  .cursor-dot, .cursor-ring {
+    display: none !important;
+  }
+}
